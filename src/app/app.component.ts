@@ -1,6 +1,8 @@
 /*
  * Angular 2 decorators and services
  */
+
+// import {HTTP_PROVIDERS} from '@angular/http';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';

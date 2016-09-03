@@ -17,6 +17,8 @@
   <div>
     <h4>Local State</h4>
 
+    <product-content></product-content>
+
     <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
 
       <input
@@ -36,7 +38,7 @@
 
     <pre>this.localState = {{ localState | json }}</pre>
 
-    <product-content></product-content>
+
   </div>
 
 </div>

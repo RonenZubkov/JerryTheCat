@@ -3,12 +3,13 @@
  */
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Products } from 'product-list.service';
+import { ProductsService } from './product-list.service';
 import {Observable}     from 'rxjs/Observable';
 
 
 @Component({
   selector: 'product-content',
+  providers:[ProductsService],
   styles: [`
   `],
   template: `
@@ -28,14 +29,17 @@ import {Observable}     from 'rxjs/Observable';
 
 export class productList {
 
-  constructor(){
+  constructor(private _productsService:ProductsService){
 
   }
 
-  ngOnInit(private products: Products){
+  ngOnInit(){
 
-    this.products.getProductData().subscribe(data => this.data = data);
-
+    let test = this._productsService.getProductData()
+                .subscribe(res => {
+                    console.log(res)
+                });
+    console.log(test);
   }
 
 }

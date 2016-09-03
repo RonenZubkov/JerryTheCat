@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import { productList } from '../product-list';
+import { ProductsService } from '../product-list/product-list.service';
+
 
 @Component({
   // The selector is what angular internally uses
@@ -11,7 +14,9 @@ import { XLarge } from './x-large';
   selector: 'home',  // <home></home>
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [
-    Title
+    Title,
+    productList,
+    ProductsService
   ],
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './home.style.css' ],
@@ -30,7 +35,7 @@ export class Home {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => console.log(this.data));
     // this.title.getData().subscribe(data => this.data = data);
-    this.title.getData().subscribe(data => this.data = data);
+    // this.title.getData().subscribe(res => this.res = res);
 
   }
 

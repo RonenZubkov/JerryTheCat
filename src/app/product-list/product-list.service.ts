@@ -3,28 +3,25 @@
  */
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+
+
 
 @Injectable()
+export class ProductsService {
+  private searchUrl: string;
 
-
-export class Products {
-  value = 'Angular 2';
-  constructor(public http: Http) {
+  constructor(private _http: Http) {
 
   }
 
   getProductData() {
-    console.log('ProductList#getProductData(): Get Data');
-    let Products = this.http.get('/assets/mock-data/mock-data.json')
-      console.log(Products);
-      .map(res => console.log(res.json()));
-    // console.log(Products);
-      return {
-        value: 'data'
-      };
-    // {
-    //   value: 'AngularClass'
-    // };
+      // this.searchUrl = ;
+
+      console.log('ProductList#getProductData(): Get Data');
+
+      return this._http.get('/assets/mock-data/mock-data.json')
+        .map(res => res.json());
 
   }
 
