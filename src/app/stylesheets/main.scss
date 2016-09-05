@@ -1,0 +1,14 @@
+
+
+.productsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //width:100%;
+
+  .productList{
+    width: 49%;
+    border: 1px solid red;
+    list-style: none;
+  }
+}

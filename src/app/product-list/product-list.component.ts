@@ -1,23 +1,32 @@
 /**
  * Created by ronen on 03/09/2016.
  */
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from './product-list.service';
+import { ProductsService } from '../services/products.service';
 import {Observable}     from 'rxjs/Observable';
-
+import { productModel } from '../product/product.model';
+import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
+import {Router, ActivatedRoute} from '@angular/router';
+import { Product } from '../product/product.component';
 
 @Component({
   selector: 'product-content',
   providers:[ProductsService],
-  styles: [`
-  `],
+  styles: [``],
   template: `
     <h1>Products</h1>
-    <div>
-      Products
-      <pre></pre>
-    </div>
+      <ul class = "productsList">
+         <li *ngFor="let _product of _products" class="productList">
+         {{_product.productName}}
+         {{_product.id}}
+         <a [routerLink]="['/product',_product.productId]"></a>
+         </li>
+          
+          
+      <pre></pre></ul>
+      
+      
+      
     <div>
       <h3>
         Food and stuff
@@ -27,19 +36,31 @@ import {Observable}     from 'rxjs/Observable';
   `
 })
 
-export class productList {
+export class productList implements OnInit{
+  private _products: productModel[];
+  id: string;
 
-  constructor(private _productsService:ProductsService){
 
+  constructor(private _productsService:ProductsService, private route: ActivatedRoute,public location: Location){
+    route.params.subscribe(params => { this.id = params['id']; });
   }
+
 
   ngOnInit(){
+    this.loadProducts()
 
-    let test = this._productsService.getProductData()
-                .subscribe(res => {
-                    console.log(res)
-                });
-    console.log(test);
   }
+
+  loadProducts(){
+    this._productsService.getProductsData()
+      .subscribe(data => {
+      console.log('observer objects: ',data);
+      this._products = data;
+    });
+  }
+
+  // productRedirect(){
+    // (click)="productRedirect(_product.productId)"
+  // }
 
 }

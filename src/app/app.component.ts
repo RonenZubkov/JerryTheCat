@@ -14,9 +14,7 @@ import { AppState } from './app.service';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.style.css'
-  ],
+  styleUrls: ['./stylesheets/main.css'],
   template: `
     <nav>
       <span>
@@ -40,6 +38,12 @@ import { AppState } from './app.service';
       <span>
         <a [routerLink]=" ['./about'] ">
           About
+        </a>
+      </span>
+      |
+      <span>
+        <a [routerLink]=" ['./cart'] ">
+          Shopping Cart
         </a>
       </span>
     </nav>

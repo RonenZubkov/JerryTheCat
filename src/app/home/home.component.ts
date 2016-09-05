@@ -4,7 +4,7 @@ import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
 import { productList } from '../product-list';
-import { ProductsService } from '../product-list/product-list.service';
+import { ProductsService } from '../services/products.service';
 
 
 @Component({

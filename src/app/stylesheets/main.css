@@ -1,0 +1,9 @@
+.productsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.productsList .productList {
+  width: 49%;
+  border: 1px solid red;
+  list-style: none; }
