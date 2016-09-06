@@ -16,8 +16,8 @@ import { Product } from '../product/product.component';
   template: `
     <h1>Products</h1>
       <ul class = "productsList">
-         <li *ngFor="let _product of _products" class="productList">
-         {{_product.productName}}
+         <li *ngFor="let _product of _products" (click)="productClicked($event,_products.productId)" class="productList">
+         {{_product._product.productId}}
          {{_product.id}}
          <a [routerLink]="['/product',_product.productId]"></a>
          </li>
@@ -58,6 +58,20 @@ export class productList implements OnInit{
       this._products = data;
     });
   }
+
+  productClicked(){
+    // this.route.params.subscribe(params => {
+    //   const id = params['id'];
+    //   const prmLayer = this._layerService.get(id);
+    //   prmLayer.then((layer: LayerModel) => {
+    //     this.layer = layer;
+    //   });
+    // });
+    console.log('Product Clicked');
+    console.log(event,elem.id);
+    // this.router.navigate([routeValue]);
+  }
+
 
   // productRedirect(){
     // (click)="productRedirect(_product.productId)"

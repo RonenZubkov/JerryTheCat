@@ -2,11 +2,15 @@
  * Created by Ronen on 9/4/2016.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import {Router, ActivatedRoute} from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import {Observable}     from 'rxjs/Observable';
 import { productModel } from './product.model';
+import { AppState } from '../app.service';
+import {Title} from "../home/title/title.service";
+
 
 
 
@@ -30,15 +34,21 @@ import { productModel } from './product.model';
 
 export class Product {
 
-  private product: productModel;
+  // private product: productModel;
 
   constructor(){}
 
   ngOninit(){
+    // this.route
+    //   .data
+    //   .subscribe((data: any) => {
+        // your resolved data from route
+        // this.localState = data.yourData;
+      // });
   }
 
-  getProduct() {
+  // getProduct(){
     // this.router.navigate(['./SomewhereElse']);
-  }
+  // }
 
 }

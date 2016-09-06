@@ -1,9 +1,6 @@
 /**
  * Created by Ronen on 9/5/2016.
  */
-/**
- * Created by ronen on 03/09/2016.
- */
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -29,7 +26,7 @@ export class ProductsService {
   //Todo Get Fucking id already!
 
   getProductById(){
-    return this._http.get('/assets/mock-data/mock-data.json')
+    return this._http.get('/assets/mock-data/mock-data.json');
   }
 
 

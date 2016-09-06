@@ -19,7 +19,11 @@ import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
 import { productList } from './product-list';
-import { Product } from './product';
+import { Product } from "./product/product.component";
+// import { routing } from './app.routing';
+// import { ProductModule } from './product/product.module';
+
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -32,25 +36,29 @@ const APP_PROVIDERS = [
  */
 @NgModule({
   bootstrap: [ App ],
+  exports: [ App ],
   declarations: [
     App,
+    // routing,
     About,
     Home,
     NoContent,
+    Product,
     XLarge,
     productList,
-    Product
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    // ProductModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    // appRoutingProviders
   ]
 })
 export class AppModule {

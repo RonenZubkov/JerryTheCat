@@ -18,7 +18,7 @@ import { AppState } from './app.service';
   template: `
     <nav>
       <span>
-        <a [routerLink]=" ['./'] ">
+        <a [routerLink]=" ['.'] ">
           Index
         </a>
       </span>
@@ -44,6 +44,12 @@ import { AppState } from './app.service';
       <span>
         <a [routerLink]=" ['./cart'] ">
           Shopping Cart
+        </a>
+      </span>
+      |
+      <span>
+        <a [routerLink]=" ['./product'] " routerLinkActive="active">
+          Product
         </a>
       </span>
     </nav>
